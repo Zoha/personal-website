@@ -13,16 +13,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9 # or your specific version
+
       - name: Set up Node
-        uses: actions/setup-node@v4 # This was the missing 'uses' part
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
+          cache: "pnpm" # Now it knows to look for pnpm-lock.yaml
 
       - name: Install and Build
         run: |
-          npm install
-          npm run build
+          pnpm install
+          pnpm run build
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
