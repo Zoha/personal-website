@@ -30,10 +30,10 @@
   --color-secondary: #e4d9ff; /* periwinkle */
   --color-accent: #dbbcf6; /* derived from periwinkle and twilight-indigo */
   --color-accent-light: #b8a6ff; /* lighter version of periwinkle */
-  --color-bg: #fafaff; /* ghost-white */
-  --color-bg-alt: #f0f0ff; /* slightly darker ghost-white */
-  --color-text: #30343f; /* jet-black */
-  --color-text-light: #5d6277; /* lighter jet-black */
+  --color-bg: #121212;
+  --color-bg-alt: #1e1e1e;
+  --color-text: #e9ecef;
+  --color-text-light: #adb5bd;
   --color-dark: #121212; /* space-indigo */
   --color-dark-light: #273469; /* twilight-indigo */
 
@@ -209,12 +209,12 @@ body {
   background-color: var(--color-bg);
   background-image: radial-gradient(
       circle at top right,
-      rgba(39, 52, 105, 0.05),
+      rgba(39, 52, 105, 0.15),
       transparent 40%
     ),
     radial-gradient(
       circle at bottom left,
-      rgba(228, 217, 255, 0.1),
+      rgba(228, 217, 255, 0.05),
       transparent 40%
     );
   background-attachment: fixed;
@@ -333,13 +333,7 @@ section.bg-bg-alt {
 }
 
 .hero-gradient {
-  background: linear-gradient(
-    135deg,
-    var(--color-bg) 0%,
-    rgba(228, 217, 255, 0.3) 30%,
-    rgba(106, 125, 200, 0.2) 60%,
-    rgba(138, 122, 213, 0.15) 100%
-  );
+  background: linear-gradient(135deg, #121212 0%, #1a1a2e 50%, #0d1f0d 100%);
 }
 
 .ai-badge {
@@ -366,17 +360,4 @@ textarea:focus {
 
 .mobile-menu-open .hamburger-line:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #121212;
-    --color-bg-alt: #1e1e1e;
-    --color-text: #e9ecef;
-    --color-text-light: #adb5bd;
-  }
-
-  .hero-gradient {
-    background: linear-gradient(135deg, #121212 0%, #1a1a2e 50%, #0d1f0d 100%);
-  }
 }
