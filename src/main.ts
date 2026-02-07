@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initHeaderShadow();
   initSkillBars();
   initTimelineAnimation();
-  initContactForm();
   initBackToTop();
 });
 
@@ -131,36 +130,6 @@ function initTimelineAnimation() {
   );
 
   observer.observe(timelineLine);
-}
-
-function initContactForm() {
-  const form = document.getElementById("contact-form") as HTMLFormElement;
-  if (!form) return;
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const submitBtn = form.querySelector('button[type="submit"]');
-    if (!submitBtn) return;
-
-    const originalContent = submitBtn.innerHTML;
-    submitBtn.innerHTML = `<svg class="w-5 h-5 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg><span>Sending...</span>`;
-    submitBtn.setAttribute("disabled", "true");
-
-    setTimeout(() => {
-      submitBtn.innerHTML = `<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Message Sent!</span>`;
-      submitBtn.classList.remove("bg-primary", "hover:bg-primary-dark");
-      submitBtn.classList.add("bg-accent");
-
-      setTimeout(() => {
-        submitBtn.innerHTML = originalContent;
-        submitBtn.removeAttribute("disabled");
-        submitBtn.classList.remove("bg-accent");
-        submitBtn.classList.add("bg-primary", "hover:bg-primary-dark");
-        form.reset();
-      }, 2000);
-    }, 1500);
-  });
 }
 
 function initBackToTop() {
