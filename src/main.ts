@@ -6,7 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
   initSkillBars();
   initTimelineAnimation();
   initBackToTop();
+  registerServiceWorker();
 });
+
+function registerServiceWorker() {
+  if ("serviceWorker" in navigator && location.protocol === "https:") {
+    navigator.serviceWorker
+      .register("/sw.js")
+      .then(() => console.log("Service Worker registered"))
+      .catch(() => console.log("Service Worker registration failed"));
+  }
+}
 
 function initMobileMenu() {
   const menuBtn = document.getElementById("mobile-menu-btn");
